@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
    # クライアント要求に応じてフォーマットを変更
    respond_to do |format|
      if @comment.save
-       format.html { redirect_to blog_path(@blog) }
+       # ajaxのためにformat.jsとすることで、index.js.erbを使えるようになる
+       format.js { render :index }
      else
        format.html { redirect_to blog_path(@blog), notice: '投稿できませんでした...' }
      end

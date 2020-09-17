@@ -1,0 +1,7 @@
+// views/blogs/show.html.erbのid=comments_areaをターゲットに指定
+// render 'comments/index'では上記のターゲットをviews/comments/_index.html.erbの内容で変更させる
+// comments: @comment.blog.comments, blog: @comment.blogでローカル変数commentsに
+// @comment.blog.commentsのインスタンス情報を取得し、views/comments/_index.html.erbに渡している。
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.blog.comments, blog: @comment.blog }) %>")
+// コメント入力後にtextareaのvalueを'空'にする記述
+$("textarea").val('')
